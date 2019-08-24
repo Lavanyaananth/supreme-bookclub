@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,41 +9,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Login styling */
+.Login {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* App styling */
-.main-text{
+  align-items: center;
+  min-height: 650px;
+  height: auto;
+  color: #000;
   text-align: center;
+  flex-direction: column;
 }
+.hero-login-text{
+  font-family: 'Slabo 13px', serif;
+  margin: 0px;
+}
+.sub-line{
+  margin: 15px;
+}
+.kep-login-facebook.metro{
+  font-family: 'Raleway';
+  margin: 25px;
+}
+/* overriding the default style of google button */
+.GoogleLogin{
+  width: 243px;
+  height: 60px;
+  font-family: 'Raleway'!important;
+  font-size: 17px!important;
+  color: #000!important;
+}
+
