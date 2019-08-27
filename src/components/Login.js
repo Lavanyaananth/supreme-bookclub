@@ -1,12 +1,17 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
+
 import GoogleLogin from 'react-google-login';
+
+
 
 class Login extends React.Component{
     render(){
         const responseFacebook = (response) => {
             console.log(response);
+        
         }
+        
       
         const responseGoogle = (response) => {
             console.log(response);
@@ -21,9 +26,11 @@ class Login extends React.Component{
                 {/* Facebook oAuth */}
                 <FacebookLogin className="FacebookLogin"
                     appId="2386668281590373" 
+                    autoLoad={false}
                     fields="name,email,picture"
                     callback={responseFacebook}
                 />
+            
                 {/* Google oAuth */}
                 <GoogleLogin className="GoogleLogin"
                     clientId="137259897562-3458blcq83t467nelj0r6vjcb9q7tojt.apps.googleusercontent.com" 
@@ -32,7 +39,9 @@ class Login extends React.Component{
                     onFailure={responseGoogle}
                 />
             </React.Fragment>
+           
         </div>);
+        
     }
 }
 export default Login;
