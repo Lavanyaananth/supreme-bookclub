@@ -28,16 +28,41 @@ code {
 .sub-line{
   margin: 15px;
 }
-.kep-login-facebook.metro{
-  font-family: 'Raleway';
-  margin: 25px;
-}
-/* overriding the default style of google button */
-.GoogleLogin{
-  width: 243px;
-  height: 60px;
-  font-family: 'Raleway'!important;
-  font-size: 17px!important;
-  color: #000!important;
-}
 
+button.github,
+input[type=submit].github,
+button.facebook,
+input[type=submit].facebook,
+button.twitter,
+input[type=submit].twitter {
+  border: 0;
+  display: block;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: #fff;
+  padding: 2rem;
+}
+button.github,
+input[type=submit].github {
+  background: #82d465;
+}
+button.github:after,
+input[type=submit].github:after {
+  background: #5cc437;
+}
+button.facebook,
+input[type=submit].facebook {
+  background: #3864a3;
+}
+button.facebook:after,
+input[type=submit].facebook:after {
+  background: #2d5082;
+}
+button.twitter,
+input[type=submit].twitter {
+  background: #5ea9dd;
+}
+button.twitter:after,
+input[type=submit].twitter:after {
+  background: #2c8dd0;
+}

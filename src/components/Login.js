@@ -1,47 +1,26 @@
 import React from 'react';
-import FacebookLogin from 'react-facebook-login';
+import propTypes from  'prop-types';
 
-import GoogleLogin from 'react-google-login';
-
-
-
-class Login extends React.Component{
-    render(){
-        const responseFacebook = (response) => {
-            console.log(response);
-        
-        }
-        
-      
-        const responseGoogle = (response) => {
-            console.log(response);
-        }
-        return(
-        
-        <div className="Login">
+const Login = props => (
+<div className="Login">
             <h1 className="hero-login-text">SUPREME BOOK CLUB</h1>
             <span className="sub-line">Login to start trading books</span>
-            <React.Fragment>
-
-                {/* Facebook oAuth */}
-                <FacebookLogin className="FacebookLogin"
-                    appId="2386668281590373" 
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    callback={responseFacebook}
-                />
-            
-                {/* Google oAuth */}
-                <GoogleLogin className="GoogleLogin"
-                    clientId="137259897562-3458blcq83t467nelj0r6vjcb9q7tojt.apps.googleusercontent.com" 
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                />
-            </React.Fragment>
+            <button className="github" onClick={() => props.authenticate("Github")}>
+                Login with Github
+            </button>
+            <button className="facebook" onClick={() => props.authenticate("Facebook")}>
+                Login with Facebook
+            </button>
+            <button className="twitter" onClick={() => props.authenticate("Twitter")}>
+                Login with Twitter
+            </button>
            
-        </div>);
-        
-    }
-}
+        </div>
+);
+
+Login.propTypes = {
+    authenticate: propTypes.func.isRequired
+}  
+
+
 export default Login;
