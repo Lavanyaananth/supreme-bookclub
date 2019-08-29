@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Dashboard from './Dashboard';
 import app from '../App';
-import Login from './Login';
 import NotFound from './NotFound';
 
 const Router = () => (
