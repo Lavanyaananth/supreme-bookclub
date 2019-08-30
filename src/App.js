@@ -3,20 +3,27 @@ import firebase from "firebase/app";
 import './css/index.css';
 import Login from './components/Login';
 import  { firebaseApp } from "./base";
+import Dashboard from './components/Dashboard';
 
 
 class App extends Component{
+  state = {
+    uid: null,
+    owner: null
+  };
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.authHandler({ user });
       }
     });
-  }
+  }   
 authHandler = async authData =>{
   console.log(authData);
   this.setState({
-    uid: authData.user.uid
+    uid: authData.user.uid,
+    owner: authData.user.uid
   });
 }
 authenticate = provider => {
@@ -35,9 +42,21 @@ authenticate = provider => {
   
   render(){
     const logout = <button onClick={this.logout}>Log Out!</button>;
+    if (!this.state.uid) {
+      return <Login authenticate={this.authenticate} />;
+    }
+
+    if (this.state.uid !== this.state.owner) {
+      return (
+        <div>
+          <p>Sorry you are not the owner!</p>
+          {logout}
+        </div>
+      );
+    }
     return (
       <div className="App">
-      <Login authenticate={this.authenticate}/>
+      <Dashboard></Dashboard>
       {logout}
       </div>
     );
