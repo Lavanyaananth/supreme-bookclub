@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
 import firebase from "firebase/app";
+import PropTypes from "prop-types";
 import './css/index.css';
 import Login from './components/Login';
+import Userslist from "./components/Userslist";
 import  { firebaseApp } from "./base";
 import Dashboard from './components/Dashboard';
 
 
 class App extends Component{
+  
+  static propTypes = {
+    loadUsers: PropTypes.func,
+    userdetails: PropTypes.object
+  };
   state = {
     uid: null,
-    owner: null
+    owner: null,
+    users :{}
   };
 
   componentDidMount() {
@@ -18,6 +26,7 @@ class App extends Component{
         this.authHandler({ user });
       }
     });
+
   }   
 authHandler = async authData =>{
   console.log(authData);
@@ -40,6 +49,11 @@ authenticate = provider => {
     this.setState({ uid: null });
   };
   
+  loadUsers = () => {
+    alert("ya");
+    this.setState({users: Userslist});
+  };
+
   render(){
     const logout = <button onClick={this.logout}>Log Out!</button>;
     if (!this.state.uid) {
@@ -56,7 +70,7 @@ authenticate = provider => {
     }
     return (
       <div className="App">
-      <Dashboard></Dashboard>
+      <Dashboard loadUsers={this.loadUsers}></Dashboard>
       {logout}
       </div>
     );
