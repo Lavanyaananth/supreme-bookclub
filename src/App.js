@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import './css/index.css';
 import Login from './components/Login';
 import Userslist from "./components/Userslist";
+import Users from "./components/Users";
 import  { firebaseApp } from "./base";
 import Dashboard from './components/Dashboard';
 
@@ -70,7 +71,19 @@ authenticate = provider => {
     }
     return (
       <div className="App">
+        <ul>
+        {Object.keys(this.state.users).map(key => (
+                 <Users
+                key={key}
+                index={key}
+                details={this.state.users[key]}
+          
+              />         
+            ))}
+        </ul>
+       
       <Dashboard loadUsers={this.loadUsers}></Dashboard>
+      <Users details= {this.state.users}></Users>
       {logout}
       </div>
     );

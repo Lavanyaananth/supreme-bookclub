@@ -66,3 +66,11 @@ button.twitter:after,
 input[type=submit].twitter:after {
   background: #2c8dd0;
 }
+/*Users*/
+.card{
+  border: 1px solid #d3d3d3;
+  width: 210px;
+  text-align: center;
+  display: inline-block;
+  margin: 20px;
+}

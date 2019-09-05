@@ -16,6 +16,7 @@ class Dashboard extends Component{
           <p> Book trading club</p>
          
           <Link to="/users">View Users</Link>
+          
           <button onClick={this.props.loadUsers}>Profile</button>
         </header>
       </div>
